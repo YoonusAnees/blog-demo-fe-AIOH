@@ -5,7 +5,7 @@ const BlogTable = ({ blogs, baseUrl, openEditModal, deleteBlog }) => {
   return (
     <div className="overflow-x-auto">
       <table className="w-full min-w-[850px] text-left">
-        <thead className="bg-[#dedede] text-[12px] font-black uppercase tracking-widest text-slate-600">
+        <thead className="bg-[#dedede] dark:bg-[#01213A] text-[12px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-300 transition-colors">
           <tr>
             <th className="px-10 py-5">Article Title</th>
             <th className="px-6 py-5">Author</th>
@@ -16,11 +16,11 @@ const BlogTable = ({ blogs, baseUrl, openEditModal, deleteBlog }) => {
           </tr>
         </thead>
 
-        <tbody className="divide-y divide-slate-200">
+        <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
           {blogs?.map((blog) => (
-            <tr key={blog._id} className="transition hover:bg-slate-50 border-b border-slate-200">
+            <tr key={blog._id} className="transition hover:bg-slate-50 dark:hover:bg-slate-800/30 border-b border-slate-200 dark:border-slate-800">
               <td className="px-10 py-5">
-                <p className="max-w-[420px] truncate text-sm font-black text-[#20252b]">
+                <p className="max-w-[420px] truncate text-sm font-black text-[#20252b] dark:text-white transition-colors">
                   {blog.title}
                 </p>
               </td>
@@ -84,7 +84,7 @@ const BlogTable = ({ blogs, baseUrl, openEditModal, deleteBlog }) => {
                 <div className="flex items-center justify-center gap-5">
                   <button
                     onClick={() => openEditModal(blog)}
-                    className="text-xl text-black transition hover:text-[#18d89d]"
+                    className="text-xl text-black dark:text-white transition hover:text-[#18d89d]"
                   >
                     <FaRegEdit />
                   </button>

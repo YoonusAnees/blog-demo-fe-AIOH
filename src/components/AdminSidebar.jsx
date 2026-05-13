@@ -28,7 +28,7 @@ export default function AdminSidebar() {
       : "flex items-center gap-3 px-6 py-4 text-sm font-bold text-white/50 transition-colors hover:bg-white/10 hover:text-white ";
 
   return (
-    <aside className="fixed left-0 top-0 z-50 hidden h-screen w-[200px] flex-col bg-[#062b46] lg:flex border-r border-white/5 transition-colors duration-300">
+    <aside className="fixed left-0 top-0 z-50 hidden h-screen w-[200px] flex-col bg-[#062b46] dark:bg-[#041a2a] lg:flex border-r border-white/5 transition-colors duration-300">
       <div className="px-6 py-8 flex justify-center">
         <img src="logoAIOH.png" alt="logo" className="h-10 w-35" />
       </div>

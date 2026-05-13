@@ -233,7 +233,7 @@ useEffect(() => {
             return (
               <Tag
                 key={index}
-                className="mt-8 border-l-4 border-[#0edb93] pl-4 text-xl font-black text-slate-900 md:text-2xl"
+                className="mt-8 border-l-4 border-[#0edb93] pl-4 text-xl font-black text-slate-900 dark:text-white md:text-2xl"
               >
                 {block.data.text}
               </Tag>
@@ -244,7 +244,7 @@ useEffect(() => {
             return (
               <p
                 key={index}
-                className="mt-5 text-[15px] leading-8 text-slate-600"
+                className="mt-5 text-[15px] leading-8 text-slate-600 dark:text-slate-300"
                 dangerouslySetInnerHTML={{ __html: block.data.text }}
               />
             );
@@ -254,7 +254,7 @@ useEffect(() => {
             return (
               <ul
                 key={index}
-                className="mt-5 list-disc space-y-2 pl-6 text-[15px] leading-7 text-slate-600"
+                className="mt-5 list-disc space-y-2 pl-6 text-[15px] leading-7 text-slate-600 dark:text-slate-300"
               >
                 {block.data.items.map((item, i) => (
                   <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
@@ -267,7 +267,7 @@ useEffect(() => {
             return (
               <blockquote
                 key={index}
-                className="mt-6 border-l-4 border-[#0edb93] bg-emerald-50 p-5 text-sm font-semibold italic text-slate-700"
+                className="mt-6 border-l-4 border-[#0edb93] bg-emerald-50 dark:bg-emerald-950/20 p-5 text-sm font-semibold italic text-slate-700 dark:text-slate-200"
               >
                 {block.data.text}
               </blockquote>
@@ -319,12 +319,12 @@ useEffect(() => {
   }
 
   return (
-    <main className="min-h-screen bg-white px-5 py-10 text-slate-900">
+    <main className="min-h-screen bg-white dark:bg-[#020c15] px-5 py-10 text-slate-900 dark:text-white transition-colors duration-300">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[1fr_280px]">
           {/* LEFT ARTICLE */}
           <article>
-            <h1 className="border-l-4 border-slate-800 pl-3 text-3xl font-black leading-tight md:text-5xl">
+            <h1 className="border-l-4 border-slate-800 dark:border-[#18d89d] pl-3 text-3xl font-black leading-tight md:text-5xl transition-colors">
               {blog.title}
             </h1>
 
@@ -367,7 +367,7 @@ useEffect(() => {
               />
             )}
 
-            <p className="mt-8 text-[15px] leading-8 text-slate-600">
+            <p className="mt-8 text-[15px] leading-8 text-slate-600 dark:text-slate-300 transition-colors">
               {blog.excerpt}
             </p>
 
@@ -402,14 +402,14 @@ useEffect(() => {
               <div className="flex items-center gap-3">
                 <button
                   onClick={likeBlog}
-                  className="flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-black text-slate-700 hover:bg-emerald-100 hover:text-emerald-700"
+                  className="flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 px-4 py-2 text-sm font-black text-slate-700 dark:text-white hover:bg-emerald-100 hover:text-emerald-700 transition-colors"
                 >
                   <FiHeart /> {blog.likes?.length || 0}
                 </button>
 
                 <button
                   onClick={shareBlog}
-                  className="flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-black text-slate-700 hover:bg-emerald-100 hover:text-emerald-700"
+                  className="flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-800 px-4 py-2 text-sm font-black text-slate-700 dark:text-white hover:bg-emerald-100 hover:text-emerald-700 transition-colors"
                 >
                   <IoShareSocialOutline /> {blog.shares || 0}
                 </button>
@@ -430,7 +430,7 @@ useEffect(() => {
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   placeholder="Share your thoughts..."
-                  className="flex-1 rounded border border-slate-300 px-4 py-3 text-sm outline-none focus:border-[#0edb93]"
+                  className="flex-1 rounded border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm outline-none focus:border-[#0edb93] text-slate-900 dark:text-white transition-colors"
                 />
 
                 <button
@@ -449,7 +449,7 @@ useEffect(() => {
                 )}
 
                 {mainComments.map((comment) => (
-                  <div key={comment._id} className="border-b border-slate-200 pb-5">
+                  <div key={comment._id} className="border-b border-slate-200 dark:border-slate-800 pb-5 transition-colors">
                     <div className="flex items-start gap-3">
                       <div className="h-10 w-10 overflow-hidden rounded-full bg-slate-200">
                         {comment.user?.avatar ? (
@@ -620,7 +620,7 @@ useEffect(() => {
         </section> */}
 
         {/* MORE BY AUTHOR */}
-        <section className="mt-16 bg-slate-100 px-6 py-10">
+        <section className="mt-16 bg-slate-100 dark:bg-[#011627] px-6 py-10 transition-colors">
           <h2 className="border-l-4 border-slate-800 pl-3 text-2xl font-black">
             Explore More by the Author
           </h2>
@@ -630,7 +630,7 @@ useEffect(() => {
               <Link
                 to={`/blogs/${item._id}`}
                 key={item._id}
-                className="rounded-xl bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-xl bg-white dark:bg-[#01213A] p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <img
                   src={item.image || "https://via.placeholder.com/300"}

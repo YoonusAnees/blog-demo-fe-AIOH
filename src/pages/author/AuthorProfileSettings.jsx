@@ -79,114 +79,196 @@ export default function AuthorProfileSettings() {
   };
 
   return (
-    <main className="grid gap-6 p-8 lg:grid-cols-[1fr_330px]">
-      <section className="bg-[#191d1f] p-10 text-white">
-        <h1 className="text-4xl font-black">Profile Settings</h1>
+    <main className="min-h-screen bg-[#f6f8fb] dark:bg-[#020c15] p-6 transition-colors duration-300 md:p-12">
+      <div className="mx-auto max-w-7xl">
+        <h1 className="mb-10 text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+          Profile Settings
+        </h1>
 
-        <div className="mt-8 space-y-7">
-          <input
-            placeholder="Full Name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full rounded-lg bg-slate-300 p-4 text-black"
-          />
+        <div className="grid gap-10 lg:grid-cols-[1fr_400px]">
+          <div className="space-y-10">
+            {/* PERSONAL INFORMATION */}
+            <section className="overflow-hidden rounded-3xl dark:bg-slate-900 p-8 shadow-2xl transition-all">
+              <h2 className="mb-6 text-xl font-black uppercase tracking-widest text-slate-500 dark:text-white">
+                Personal Information
+              </h2>
 
-          <input
-            disabled
-            value={form.email}
-            className="w-full rounded-lg bg-slate-300 p-4 text-black"
-          />
+              <div className="space-y-8 rounded-3xl bg-white dark:bg-slate-900 p-10 shadow-inner">
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500">
+                    Full Name
+                  </label>
+                  <input
+                    placeholder="e.g. Danial Aliaskarov"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className="mt-3 w-full rounded-xl bg-slate-200/50 p-5 text-sm font-bold text-slate-800 outline-none transition focus:ring-2 focus:ring-[#18d89d]/20"
+                  />
+                </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <input
-              placeholder="Professional Title"
-              value={form.professionalTitle}
-              onChange={(e) =>
-                setForm({ ...form, professionalTitle: e.target.value })
-              }
-              className="rounded-lg bg-slate-300 p-4 text-black"
-            />
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500">
+                    E-Mail
+                  </label>
+                  <input
+                    disabled
+                    value={form.email}
+                    className="mt-3 w-full cursor-not-allowed rounded-xl bg-slate-200/50 p-5 text-sm font-bold text-slate-400 outline-none"
+                  />
+                </div>
 
-            <input
-              placeholder="Blog Category"
-              value={form.blogCategory}
-              onChange={(e) =>
-                setForm({ ...form, blogCategory: e.target.value })
-              }
-              className="rounded-lg bg-slate-300 p-4 text-black"
-            />
+                <div className="grid gap-8 md:grid-cols-2">
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500">
+                      Professional Title
+                    </label>
+                    <input
+                      placeholder="UX/UI Designer"
+                      value={form.professionalTitle}
+                      onChange={(e) =>
+                        setForm({ ...form, professionalTitle: e.target.value })
+                      }
+                      className="mt-3 w-full rounded-xl bg-slate-200/50 p-5 text-sm font-bold text-slate-800 outline-none transition focus:ring-2 focus:ring-[#18d89d]/20"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500">
+                      Blog Category (Optional)
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={form.blogCategory}
+                        onChange={(e) =>
+                          setForm({ ...form, blogCategory: e.target.value })
+                        }
+                        className="mt-3 w-full appearance-none rounded-xl bg-slate-200/50 p-5 text-sm font-bold text-slate-800 outline-none transition focus:ring-2 focus:ring-[#18d89d]/20"
+                      >
+                        <option value="">Select Category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Business">Business</option>
+                        <option value="Design">Design</option>
+                      </select>
+                      <span className="pointer-events-none absolute right-5 top-[28px] text-slate-400">
+                        ▼
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* CHANGE PASSWORD */}
+            <section className="overflow-hidden rounded-3xl p-8 shadow-2xl transition-all dark:bg-slate-900">
+              <h2 className="mb-6 text-xl font-black uppercase tracking-widest text-slate-500 dark:text-white">
+                Change Password
+              </h2>
+
+              <div className="rounded-3xl  p-10 shadow-inner">
+                <div className="grid gap-8 md:grid-cols-2">
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500">
+                      Old Password
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="••••••••"
+                      value={form.oldPassword}
+                      onChange={(e) =>
+                        setForm({ ...form, oldPassword: e.target.value })
+                      }
+                      className="mt-3 w-full rounded-xl bg-slate-200/50 p-5 text-sm font-bold text-slate-800 outline-none transition focus:ring-2 focus:ring-[#18d89d]/20"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500">
+                      New Password
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="••••••••"
+                      value={form.newPassword}
+                      onChange={(e) =>
+                        setForm({ ...form, newPassword: e.target.value })
+                      }
+                      className="mt-3 w-full rounded-xl bg-slate-200/50 p-5 text-sm font-bold text-slate-800 outline-none transition focus:ring-2 focus:ring-[#18d89d]/20"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            <input
-              type="password"
-              placeholder="Old Password"
-              value={form.oldPassword}
-              onChange={(e) =>
-                setForm({ ...form, oldPassword: e.target.value })
-              }
-              className="rounded-lg bg-slate-300 p-4 text-black"
-            />
-
-            <input
-              type="password"
-              placeholder="New Password"
-              value={form.newPassword}
-              onChange={(e) =>
-                setForm({ ...form, newPassword: e.target.value })
-              }
-              className="rounded-lg bg-slate-300 p-4 text-black"
-            />
-          </div>
-        </div>
-      </section>
-
-      <aside className="bg-[#191d1f] p-8 text-center text-white">
-        <div
-          onClick={() => document.getElementById("avatarInput").click()}
-          className="group relative mx-auto h-36 w-36 cursor-pointer overflow-hidden rounded-full bg-slate-300"
-        >
-          {preview || form.avatar ? (
-            <img
-              src={preview || `${baseUrl}${form.avatar}`}
-              alt="Avatar"
-              className="h-full w-full object-cover"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-4xl font-black text-slate-500">
-              {form.name?.charAt(0) || "U"}
+          <aside className="h-fit rounded-[40px] dark:bg-slate-900 p-10 shadow-2xl">
+            <div
+              onClick={() => document.getElementById("avatarInput").click()}
+              className="relative mx-auto h-52 w-52 cursor-pointer group"
+            >
+              <div className="h-full w-full overflow-hidden rounded-3xl bg-slate-300">
+                {preview || form.avatar ? (
+                  <img
+                    src={preview || `${baseUrl}${form.avatar}`}
+                    alt="Avatar"
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-6xl font-black text-slate-800">
+                    {form.name?.charAt(0) || "U"}
+                  </div>
+                )}
+              </div>
+              <button className="absolute -bottom-2 -right-2 flex h-10 w-10 items-center justify-center rounded-xl bg-[#18d89d] text-slate-900 shadow-lg transition hover:scale-110">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2.5}
+                  stroke="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+                  />
+                </svg>
+              </button>
             </div>
-          )}
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
-            <span className="text-xs font-bold">CHANGE PHOTO</span>
-          </div>
+
+            <input
+              id="avatarInput"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleFileChange}
+            />
+
+            <div className="mt-8 text-center">
+              <h2 className="text-2xl font-black text-slate-800 dark:text-white">{form.name}</h2>
+              <p className="mt-1 text-sm font-bold text-[#18d89d]/70 uppercase tracking-widest">
+                {form.professionalTitle || "New Author"}
+              </p>
+            </div>
+
+            <div className="mt-14 space-y-4">
+              <button
+                onClick={saveProfile}
+                className="w-full rounded-2xl bg-[#18d89d] py-5 text-sm font-black uppercase tracking-[0.2em] text-[#01213A] shadow-lg transition hover:bg-[#14c392] hover:scale-[1.02]"
+              >
+                SAVE PROFILE
+              </button>
+
+              <button
+                onClick={() => loadMe()}
+                className="w-full rounded-2xl bg-[#011627] py-5 text-sm font-black uppercase tracking-[0.2em] text-white/90 shadow-lg transition hover:bg-slate-800"
+              >
+                DISCARD CHANGES
+              </button>
+            </div>
+          </aside>
         </div>
-
-        <input
-          id="avatarInput"
-          type="file"
-          accept="image/*"
-          className="hidden"
-          onChange={handleFileChange}
-        />
-
-        <h2 className="mt-8 text-2xl font-black">{form.name}</h2>
-        <p className="text-sm text-slate-400">{form.professionalTitle}</p>
-
-        <button
-          onClick={saveProfile}
-          className="mt-12 w-full bg-[#18d89d] py-4 font-black text-black"
-        >
-          SAVE PROFILE
-        </button>
-
-        <button
-          onClick={changePassword}
-          className="mt-5 w-full bg-[#062b46] py-4 font-black"
-        >
-          UPDATE PASSWORD
-        </button>
-      </aside>
+      </div>
     </main>
   );
 }

@@ -4,7 +4,7 @@ import UserSidebar from "../components/UserSidebar";
 
 export default function UserLayout() {
   return (
-    <div className="min-h-screen bg-[#f6f8fb] text-slate-900">
+    <div className="min-h-screen bg-[#f6f8fb] dark:bg-[#020c15] text-slate-900 dark:text-white transition-colors duration-300">
       <UserSidebar />
 
       <div className="lg:pl-[200px]">

@@ -111,7 +111,7 @@ export default function AuthorArticles() {
   };
 
   return (
-    <main className="min-h-screen bg-[#edf1f3] px-6 py-8 text-slate-900 md:px-8">
+    <main className="min-h-screen bg-[#edf1f3] dark:bg-slate-950 px-6 py-8 text-slate-900 dark:text-white transition-colors duration-300 md:px-8">
       <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <h1 className="text-3xl font-black uppercase tracking-tight">BLOGS & ARTICLES</h1>
       </div>
@@ -126,7 +126,7 @@ export default function AuthorArticles() {
         categories={categories}
       />
 
-      <div className="hidden border-b border-slate-300 px-4 pb-4 text-xs font-black uppercase text-slate-500 md:grid md:grid-cols-[1.7fr_0.7fr_0.8fr_0.5fr]">
+      <div className="hidden border-b border-slate-300 dark:border-slate-800 px-4 pb-4 text-xs font-black uppercase text-slate-500 dark:text-slate-400 md:grid md:grid-cols-[1.7fr_0.7fr_0.8fr_0.5fr]">
         <p>Article</p>
         <p>Published</p>
         <p>Engagement</p>
@@ -141,7 +141,7 @@ export default function AuthorArticles() {
             <ArticleCard key={blog._id} blog={blog} openEditModal={openEditModal} deleteBlog={deleteBlog} />
           ))
         ) : (
-          <div className="rounded-2xl bg-white p-12 text-center">
+          <div className="rounded-2xl bg-white dark:bg-slate-900 p-12 text-center transition-colors">
             <p className="font-bold text-slate-400">No articles found</p>
           </div>
         )}

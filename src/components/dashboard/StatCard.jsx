@@ -1,19 +1,27 @@
 import CountUp from "./CountUp";
 
-const StatCard = ({ title, value, icon }) => {
+const StatCard = ({ title, value, icon, growth }) => {
   return (
-    <div className="relative rounded-sm bg-[#01213A] p-6 text-center shadow-xl border-t border-r border-b border-8 border-[#18d89d]">
-      <p className="text-xs font-black tracking-widest text-slate-400">
+    <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-[#01213A] p-9 text-slate-800 dark:text-white shadow-lg border-l-4 border-[#18d89d] transition-all duration-300">
+      <p className="text-[10px] font-black tracking-widest text-slate-500 dark:text-white/50 uppercase">
         {title}
       </p>
 
-      <h2 className="mt-2 text-4xl font-black text-white">
-        <CountUp end={value || 0} />
+      <h2 className="mt-3 text-4xl font-black">
+        {typeof value === "number" ? <CountUp end={value || 0} /> : value}
       </h2>
 
-      <div className="absolute bottom-6 right-5 text-xl text-[#18d89d] opacity-80">
-        {icon}
-      </div>
+      {growth && (
+        <div className="absolute bottom-6 right-6 text-[10px] font-bold text-[#18d89d]">
+          {growth}
+        </div>
+      )}
+
+      {icon && !growth && (
+        <div className="absolute bottom-6 right-6 text-[#18d89d] opacity-90">
+          {icon}
+        </div>
+      )}
     </div>
   );
 };

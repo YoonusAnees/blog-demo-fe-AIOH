@@ -5,16 +5,102 @@
   --font-sans: "Roboto", system-ui, sans-serif;
 }
 
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-body: #ffffff;
+  --bg-surface: #f6f8fb;
+  --bg-card: #ffffff;
+  --text-primary: #1d2b36;
+  --text-secondary: #64748b;
+  --border-main: #e2e8f0;
+  --nav-bg: #ffffff;
+}
+
+.dark {
+  --bg-body: #020c15;
+  --bg-surface: #011627;
+  --bg-card: #01213A;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-main: #1e293b;
+  --nav-bg: #011627;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: #020617;
-  color: white;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
   font-family: "Roboto", system-ui, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 
+/* EditorJS Dark Mode Overrides */
+.dark .ce-block__content, 
+.dark .ce-toolbar__content {
+  color: #f8fafc;
+}
 
+.dark .ce-toolbar__plus,
+.dark .ce-toolbar__settings-btn {
+  color: #f8fafc;
+  background-color: #01213A;
+}
+
+.dark .ce-toolbar__plus:hover,
+.dark .ce-toolbar__settings-btn:hover {
+  background-color: #1e293b;
+}
+
+.dark .ce-popover {
+  background-color: #01213A !important;
+  color: #f8fafc !important;
+  border: 1px solid #1e293b !important;
+}
+
+.dark .ce-popover__item:hover {
+  background-color: #1e293b !important;
+}
+
+.dark .ce-popover__item-icon {
+  background-color: #1e293b !important;
+  color: #18d89d !important;
+}
+
+.dark .ce-popover__item-label {
+  color: #f8fafc !important;
+}
+
+.dark .cdx-input {
+  background-color: #011627 !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.dark .ce-inline-toolbar {
+  background-color: #01213A !important;
+  color: #f8fafc !important;
+  border: 1px solid #1e293b !important;
+}
+
+.dark .ce-inline-tool {
+  color: #f8fafc !important;
+}
+
+.dark .ce-inline-tool:hover {
+  background-color: #1e293b !important;
+}
+
+.dark .ce-conversion-toolbar {
+  background-color: #01213A !important;
+  border: 1px solid #1e293b !important;
+}
+
+.dark .ce-conversion-tool:hover {
+  background-color: #1e293b !important;
+}
