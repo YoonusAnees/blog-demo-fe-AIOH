@@ -27,7 +27,7 @@ export default function AuthorSidebar() {
       : "flex items-center gap-3 px-6 py-4 text-sm font-bold text-white/85 transition-colors hover:bg-white/10 hover:text-white ";
 
   return (
-    <aside className="fixed left-0 top-0 z-50 hidden h-screen w-[200px] flex-col bg-[#062b46] lg:flex">
+    <aside className="fixed left-0 top-0 z-50 hidden h-screen w-[200px] flex-col bg-[#062b46] dark:bg-slate-950 lg:flex transition-colors duration-300">
       <div className="px-6 py-8 flex justify-center">
         <img src="logoAIOH.png" alt="logo" className="h-10 w-35" />
       </div>
@@ -57,7 +57,7 @@ export default function AuthorSidebar() {
       <div className="mt-auto flex justify-center pb-10">
         <button
           onClick={logout}
-          className="flex w-[70%] items-center justify-center gap-3 bg-black px-5 py-3 text-sm font-bold text-white transition hover:bg-gray-800"
+          className="flex w-[70%] items-center justify-center gap-3 bg-black dark:bg-slate-800 px-5 py-3 text-sm font-bold text-white transition hover:bg-gray-800"
         >
           <IoIosLogOut className="text-lg" />
           Logout

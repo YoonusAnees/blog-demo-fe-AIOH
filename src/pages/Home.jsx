@@ -108,7 +108,7 @@ export default function Home() {
   const latestBlogs = categoryFilteredBlogs.slice(0, 6);
 
   return (
-    <main className="bg-white text-[#1d2b36]">
+    <main className="bg-white dark:bg-[#020c15] text-[#1d2b36] dark:text-white transition-colors duration-300">
       {/* TRENDING */}
       <section className="mx-auto max-w-6xl px-5 py-10">
         <h2 className="border-l-4 border-[#0b3148] pl-3 text-2xl font-black text-[#66727c]">
@@ -169,7 +169,7 @@ export default function Home() {
                     {blog.category || "Insights"}
                   </p>
 
-                  <h3 className="line-clamp-2 text-sm font-black text-[#1d2b36]">
+                  <h3 className="line-clamp-2 text-sm font-black text-[#1d2b36] dark:text-white transition-colors">
                     {blog.title}
                   </h3>
                 </div>
@@ -180,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* LATEST */}
-      <section className="bg-[#f4f4f6] py-10">
+      <section className="bg-[#f4f4f6] dark:bg-[#011627] py-10 transition-colors duration-300">
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="border-l-4 border-[#0b3148] pl-3 text-2xl font-black text-[#66727c]">
             Latest Insights & Trends
@@ -220,7 +220,7 @@ export default function Home() {
               <Link
                 key={blog._id}
                 to={`/blogs/${blog._id}`}
-                className="group overflow-hidden rounded-md bg-white shadow-md transition hover:-translate-y-1"
+                className="group overflow-hidden rounded-md bg-white dark:bg-[#01213A] shadow-md transition hover:-translate-y-1"
               >
                 <img
                   src={
@@ -244,7 +244,7 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <h3 className="line-clamp-2 text-base font-black leading-tight text-[#1d2b36]">
+                  <h3 className="line-clamp-2 text-base font-black leading-tight text-[#1d2b36] dark:text-white">
                     {blog.title}
                   </h3>
 
@@ -322,7 +322,7 @@ export default function Home() {
           {topAuthors.map((author, index) => (
             <div
               key={author._id}
-              className="group relative overflow-hidden rounded-[30px] bg-[#06243d] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative overflow-hidden rounded-[30px] bg-[#06243d] dark:bg-[#01213A] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             >
               {/* RANK BADGE */}
               <div className="absolute left-6 top-6 z-20 flex h-[68px] w-[68px] items-center justify-center rounded-[18px] bg-[#18d89d] text-2xl font-black text-[#06243d]">
@@ -345,7 +345,7 @@ export default function Home() {
               </div>
 
               {/* CONTENT */}
-              <div className="bg-[#06243d] py-6 text-center text-white">
+              <div className="bg-[#06243d] dark:bg-[#01213A] py-6 text-center text-white transition-colors">
                 <h3 className="text-xl font-black">{author.name}</h3>
                 <p className="mt-1 text-xs font-medium text-white/50">
                   {author.professionalTitle || "CEO & Founder"}
@@ -361,7 +361,7 @@ export default function Home() {
       </section>
 
       {/* SUBSCRIBE */}
-      <section className="bg-[#eef2f3] py-14">
+      <section className="bg-[#eef2f3] dark:bg-slate-900 py-14">
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 md:grid-cols-2">
           <div>
             <h2 className="text-4xl font-black text-white md:text-[#1d2b36]">

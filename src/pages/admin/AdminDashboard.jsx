@@ -157,7 +157,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <main className="min-h-screen px-5 py-10 text-[#222831] md:px-10 mt-10">
+    <main className="min-h-screen px-5 py-10 text-[#222831] dark:text-white md:px-10 mt-10 transition-colors duration-300 bg-[#f6f8fb] dark:bg-[#020c15]">
       <div className="mx-auto max-w-7xl">
         {/* ANALYTICS CARDS */}
         <section className="grid gap-6 md:grid-cols-4">
@@ -168,7 +168,7 @@ export default function AdminDashboard() {
 
         {/* TOP CONTRIBUTORS */}
         <section className="mt-14">
-          <h2 className="text-3xl font-black text-[#20252b]">Top Contributors</h2>
+          <h2 className="text-3xl font-black text-[#20252b] dark:text-white">Top Contributors</h2>
 
           <p className="mt-3 text-base font-medium text-slate-500">
             Recognizing the individuals driving discourse and editorial
@@ -183,21 +183,21 @@ export default function AdminDashboard() {
         </section>
 
         {/* RECENT BLOGS MANAGEMENT */}
-        <section className="mt-20 overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-sm">
-          <div className="flex flex-col gap-4 border-b border-slate-300 px-8 py-7 md:flex-row md:items-center md:justify-between">
-            <h2 className="text-2xl font-black text-[#20252b]">
+        <section className="mt-20 overflow-hidden rounded-[26px] border border-slate-200 dark:border-[#1e293b] bg-white dark:bg-[#01213A] shadow-sm transition-colors duration-300">
+          <div className="flex flex-col gap-4 border-b border-slate-300 dark:border-slate-800 px-8 py-7 md:flex-row md:items-center md:justify-between">
+            <h2 className="text-2xl font-black text-[#20252b] dark:text-white">
               Recent Blogs & Management
             </h2>
 
             <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 bg-[#e4e4e4] px-7 py-3 text-sm font-black text-[#20252b] transition hover:bg-slate-300">
+              <button className="flex items-center gap-2 rounded-lg bg-[#e4e4e4] dark:bg-[#011627] px-7 py-3 text-sm font-black text-[#20252b] dark:text-white transition hover:bg-slate-300 dark:hover:bg-slate-800">
                 <FaFilter className="text-xs" />
                 Filter
               </button>
 
               <Link
                 to="/author-dashboard/create"
-                className="bg-[#00e787] px-8 py-3 text-sm font-black text-black transition hover:bg-[#18d89d]"
+                className="rounded-lg bg-[#18d89d] px-8 py-3 text-sm font-black text-[#01213A] transition hover:bg-[#14c392] hover:scale-105"
               >
                 New Article
               </Link>

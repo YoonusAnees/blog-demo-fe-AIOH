@@ -6,7 +6,7 @@ const ArticleCard = ({ blog, openEditModal, deleteBlog }) => {
   const isDraft = blog.status === "Draft";
 
   return (
-    <div className="grid gap-5 rounded-xl bg-white p-4 shadow-sm transition hover:shadow-md md:grid-cols-[1.7fr_0.7fr_0.8fr_0.5fr] md:items-center">
+    <div className="grid gap-5 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm transition hover:shadow-md dark:hover:bg-slate-800/50 md:grid-cols-[1.7fr_0.7fr_0.8fr_0.5fr] md:items-center">
       {/* ARTICLE */}
       <div className="flex items-center gap-4">
         <img
@@ -17,7 +17,7 @@ const ArticleCard = ({ blog, openEditModal, deleteBlog }) => {
 
         <div>
           <div className="mb-2 flex flex-wrap items-center gap-2">
-            <span className="rounded bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase text-slate-500">
+            <span className="rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 text-[10px] font-bold uppercase text-slate-500 dark:text-slate-400">
               {blog.category}
             </span>
 
@@ -32,7 +32,7 @@ const ArticleCard = ({ blog, openEditModal, deleteBlog }) => {
             )}
           </div>
 
-          <h3 className="font-bold leading-snug text-slate-800">
+          <h3 className="font-bold leading-snug text-slate-800 dark:text-white transition-colors">
             {blog.title}
           </h3>
         </div>
@@ -71,7 +71,7 @@ const ArticleCard = ({ blog, openEditModal, deleteBlog }) => {
         <button
           type="button"
           onClick={() => openEditModal(blog)}
-          className="text-xl text-slate-900 transition hover:text-emerald-500"
+          className="text-xl text-slate-900 dark:text-white transition hover:text-emerald-500"
         >
           <FiEdit3 />
         </button>

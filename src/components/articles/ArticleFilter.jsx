@@ -8,7 +8,7 @@ const ArticleFilter = ({
   categories 
 }) => {
   return (
-    <div className="mb-8 flex flex-col gap-4 rounded-xl bg-[#e9ecef] px-6 py-4 lg:flex-row lg:items-center lg:justify-between">
+    <div className="mb-8 flex flex-col gap-4 rounded-xl bg-[#e9ecef] dark:bg-slate-900 px-6 py-4 lg:flex-row lg:items-center lg:justify-between transition-colors">
       <div className="flex flex-wrap items-center gap-4">
         <p className="text-[11px] font-black uppercase tracking-widest text-slate-500">
           Filter By:
@@ -18,7 +18,7 @@ const ArticleFilter = ({
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="min-w-[150px] appearance-none rounded-lg bg-[#e9ecef] px-4 py-2.5 pr-10 text-sm font-semibold text-slate-700 shadow-sm outline-none transition focus:border-[#18d89d]"
+            className="min-w-[150px] appearance-none rounded-lg bg-[#e9ecef] dark:bg-slate-800 px-4 py-2.5 pr-10 text-sm font-semibold text-slate-700 dark:text-white shadow-sm outline-none transition focus:border-[#18d89d]"
           >
             <option value="">Category</option>
             {categories.map((cat) => (
@@ -32,7 +32,7 @@ const ArticleFilter = ({
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="min-w-[150px] appearance-none rounded-lg bg-[#e9ecef] px-4 py-2.5 pr-10 text-sm font-semibold text-slate-700 shadow-sm outline-none transition focus:border-[#18d89d]"
+            className="min-w-[150px] appearance-none rounded-lg bg-[#e9ecef] dark:bg-slate-800 px-4 py-2.5 pr-10 text-sm font-semibold text-slate-700 dark:text-white shadow-sm outline-none transition focus:border-[#18d89d]"
           >
             <option value="">Status</option>
             <option value="Published">Published</option>
@@ -47,7 +47,7 @@ const ArticleFilter = ({
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="bg-transparent text-sm font-black text-slate-700 underline outline-none"
+          className="bg-transparent text-sm font-black text-slate-700 dark:text-white underline outline-none"
         >
           <option value="newest">Newest First</option>
           <option value="oldest">Oldest First</option>

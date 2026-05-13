@@ -4,7 +4,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 
 const ContributorCard = ({ person, index, baseUrl }) => {
   return (
-    <div className="rounded-[26px] bg-white p-3 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+    <div className="rounded-[26px] bg-white dark:bg-[#01213A] p-3 shadow-[0_18px_45px_rgba(15,23,42,0.12)] transition-colors duration-300">
       <div className="relative h-[180px] overflow-hidden rounded-[22px]">
         <img
           src={
@@ -32,38 +32,38 @@ const ContributorCard = ({ person, index, baseUrl }) => {
       </div>
 
       <div className="grid grid-cols-2 gap-y-6 px-6 py-8">
-        <div className="border-l-[3px] border-[#24465d] pl-4">
-          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500">
+        <div className="border-l-[3px] border-[#24465d] dark:border-emerald-500 pl-4">
+          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500 dark:text-slate-400">
             <FaRegNewspaper /> Posts
           </p>
-          <h4 className="mt-2 text-xl font-black text-[#20252b]">
+          <h4 className="mt-2 text-xl font-black text-[#20252b] dark:text-white">
             {person.posts || 0}
           </h4>
         </div>
 
-        <div className="border-l-[3px] border-[#24465d] pl-4">
-          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500">
+        <div className="border-l-[3px] border-[#24465d] dark:border-emerald-500 pl-4">
+          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500 dark:text-slate-400">
             <FaRegHeart /> Likes
           </p>
-          <h4 className="mt-2 text-xl font-black text-[#20252b]">
+          <h4 className="mt-2 text-xl font-black text-[#20252b] dark:text-white">
             {person.likes || 0}
           </h4>
         </div>
 
-        <div className="border-l-[3px] border-[#24465d] pl-4">
-          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500">
+        <div className="border-l-[3px] border-[#24465d] dark:border-emerald-500 pl-4">
+          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500 dark:text-slate-400">
             <BiComment /> Comments
           </p>
-          <h4 className="mt-2 text-xl font-black text-[#20252b]">
+          <h4 className="mt-2 text-xl font-black text-[#20252b] dark:text-white">
             {person.Count || 0}
           </h4>
         </div>
 
-        <div className="border-l-[3px] border-[#24465d] pl-4">
-          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500">
+        <div className="border-l-[3px] border-[#24465d] dark:border-emerald-500 pl-4">
+          <p className="flex items-center gap-2 text-[11px] font-bold uppercase text-slate-500 dark:text-slate-400">
             <IoShareSocialOutline /> Shares
           </p>
-          <h4 className="mt-2 text-xl font-black text-[#20252b]">
+          <h4 className="mt-2 text-xl font-black text-[#20252b] dark:text-white">
             {person.shares || 0}
           </h4>
         </div>
