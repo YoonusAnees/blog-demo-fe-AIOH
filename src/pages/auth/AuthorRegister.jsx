@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import api from "../../api/axios";
 import {
   MdPerson,
@@ -77,7 +78,7 @@ export default function AuthorRegister() {
         role: "author",
       });
 
-      localStorage.setItem("accessToken", res.data.accessToken);
+      Cookies.set("accessToken", res.data.accessToken, { expires: 7 });
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       navigate("/author-dashboard");

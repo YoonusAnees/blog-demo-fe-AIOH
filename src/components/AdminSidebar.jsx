@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import Cookies from "js-cookie";
 import { IoIosLogOut } from "react-icons/io";
 import { TfiLayoutGrid2 } from "react-icons/tfi";
 import { FaUsers, FaArrowLeft } from "react-icons/fa";
@@ -17,7 +18,7 @@ export default function AdminSidebar() {
       console.log(error);
     }
 
-    localStorage.removeItem("accessToken");
+    Cookies.remove("accessToken");
     localStorage.removeItem("user");
     navigate("/");
   };

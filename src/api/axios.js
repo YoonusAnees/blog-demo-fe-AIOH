@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -6,7 +7,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = Cookies.get("accessToken");
 
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
@@ -31,8 +32,7 @@ api.interceptors.response.use(
       originalRequest?.url?.includes("/auth/reset-password");
 
     if (isRefreshRequest) {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("user");
+      Cookies.remove("accessToken");
       return Promise.reject(error);
     }
 
@@ -46,13 +46,13 @@ api.interceptors.response.use(
       try {
         const res = await api.post("/auth/refresh");
 
-        localStorage.setItem("accessToken", res.data.accessToken);
+        Cookies.set("accessToken", res.data.accessToken, { expires: 7 });
 
         originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`;
 
         return api(originalRequest);
       } catch (refreshError) {
-        localStorage.removeItem("accessToken");
+        Cookies.remove("accessToken");
         localStorage.removeItem("user");
 
         window.location.href = "/";
