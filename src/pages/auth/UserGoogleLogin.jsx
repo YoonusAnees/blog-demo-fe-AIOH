@@ -1,5 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import api from "../../api/axios";
 
 export default function UserGoogleLogin() {
@@ -11,7 +12,7 @@ export default function UserGoogleLogin() {
         credential: response.credential,
       });
 
-      localStorage.setItem("accessToken", res.data.accessToken);
+      Cookies.set("accessToken", res.data.accessToken, { expires: 7 });
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       navigate("/user-dashboard");
