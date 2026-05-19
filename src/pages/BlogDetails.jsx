@@ -333,7 +333,7 @@ useEffect(() => {
               <div className="h-8 w-8 overflow-hidden rounded-full bg-slate-200">
                 {blog.author?.avatar ? (
                   <img
-                    src={`${baseUrl}${blog.author.avatar}`}
+                    src={blog.author.avatar.startsWith("http") ? blog.author.avatar : `${baseUrl}${blog.author.avatar}`}
                     alt={blog.author?.name}
                     className="h-full w-full object-cover"
                   />
@@ -454,7 +454,7 @@ useEffect(() => {
                       <div className="h-10 w-10 overflow-hidden rounded-full bg-slate-200">
                         {comment.user?.avatar ? (
                           <img
-                            src={`${baseUrl}${comment.user.avatar}`}
+                            src={comment.user.avatar.startsWith("http") ? comment.user.avatar : `${baseUrl}${comment.user.avatar}`}
                             alt={comment.user?.name}
                             className="h-full w-full object-cover"
                           />
@@ -515,7 +515,7 @@ useEffect(() => {
                                 <div className="h-8 w-8 overflow-hidden rounded-full bg-slate-200">
                                   {reply.user?.avatar ? (
                                     <img
-                                      src={`${baseUrl}${reply.user.avatar}`}
+                                      src={reply.user.avatar.startsWith("http") ? reply.user.avatar : `${baseUrl}${reply.user.avatar}`}
                                       alt={reply.user?.name}
                                       className="h-full w-full object-cover"
                                     />

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 import api from "../../api/axios";
 import {
   MdEmail,
@@ -26,7 +25,6 @@ export default function AdminLogin() {
     try {
       const res = await api.post("/auth/login", form);
 
-      Cookies.set("accessToken", res.data.accessToken, { expires: 7 });
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       const role = res.data.user.role;
@@ -49,7 +47,6 @@ export default function AdminLogin() {
         role: "admin", // Admin login might have its own default role if needed
       });
 
-      Cookies.set("accessToken", res.data.accessToken, { expires: 7 });
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       const role = res.data.user.role;

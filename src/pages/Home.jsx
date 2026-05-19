@@ -257,7 +257,7 @@ export default function Home() {
                       <div className="h-7 w-7 overflow-hidden rounded-full bg-slate-200">
                         {blog.author?.avatar ? (
                           <img
-                            src={`${baseUrl}${blog.author.avatar}`}
+                            src={blog.author.avatar.startsWith("http") ? blog.author.avatar : `${baseUrl}${blog.author.avatar}`}
                             alt={blog.author?.name}
                             className="h-full w-full object-cover"
                           />
@@ -333,7 +333,7 @@ export default function Home() {
               <div className="h-[340px] w-full overflow-hidden bg-slate-200">
                 {author.avatar ? (
                   <img
-                    src={`${baseUrl}${author.avatar}`}
+                    src={author.avatar.startsWith("http") ? author.avatar : `${baseUrl}${author.avatar}`}
                     alt={author.name}
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />

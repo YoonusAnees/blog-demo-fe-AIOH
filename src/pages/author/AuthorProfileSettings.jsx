@@ -28,6 +28,9 @@ export default function AuthorProfileSettings() {
       blogCategory: res.data.data.blogCategory || "",
       avatar: res.data.data.avatar || "",
     }));
+
+    localStorage.setItem("user", JSON.stringify(res.data.data));
+    window.dispatchEvent(new Event("storage"));
   };
 
   useEffect(() => {
@@ -208,7 +211,7 @@ export default function AuthorProfileSettings() {
               <div className="h-full w-full overflow-hidden rounded-3xl bg-slate-300">
                 {preview || form.avatar ? (
                   <img
-                    src={preview || `${baseUrl}${form.avatar}`}
+                    src={preview || (form.avatar?.startsWith("http") ? form.avatar : `${baseUrl}${form.avatar}`)}
                     alt="Avatar"
                     className="h-full w-full object-cover"
                   />

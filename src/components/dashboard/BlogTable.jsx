@@ -30,7 +30,7 @@ const BlogTable = ({ blogs, baseUrl, openEditModal, deleteBlog }) => {
                   <div className="h-8 w-8 overflow-hidden rounded-full border border-slate-200 shadow-sm">
                     {blog.author?.avatar ? (
                       <img
-                        src={`${baseUrl}${blog.author.avatar}`}
+                        src={blog.author.avatar.startsWith("http") ? blog.author.avatar : `${baseUrl}${blog.author.avatar}`}
                         alt={blog.author.name}
                         className="h-full w-full object-cover"
                       />

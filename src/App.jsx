@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { fetchCsrfToken } from "./api/axios";
 
 import PublicLayout from "./layout/PublicLayout";
 import AuthLayout from "./layout/AuthLayout";
@@ -26,6 +28,10 @@ import AuthorCreatePost from "./pages/author/AuthorCreatePost";
 import AuthorProfileSettings from "./pages/author/AuthorProfileSettings";
 
 export default function App() {
+  useEffect(() => {
+    fetchCsrfToken();
+  }, []);
+
   return (
     <Routes>
       <Route element={<PublicLayout />}>

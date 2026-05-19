@@ -1,7 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 import api from "../api/axios";
-import Cookies from "js-cookie";
 import { TfiLayoutGrid2 } from "react-icons/tfi";
 import { SlNote } from "react-icons/sl";
 import { LuStickyNote } from "react-icons/lu";
@@ -17,7 +16,6 @@ export default function AuthorSidebar() {
       console.log(error);
     }
 
-    Cookies.remove("accessToken");
     localStorage.removeItem("user");
     navigate("/");
   };
