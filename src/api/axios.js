@@ -1,18 +1,25 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
 
-api.interceptors.request.use((config) => {
-  const accessToken = Cookies.get("accessToken");
+let csrfToken = null;
 
-  if (accessToken) {
-    config.headers.Authorization = `Bearer ${accessToken}`;
+export const fetchCsrfToken = async () => {
+  try {
+    const { data } = await api.get('/csrf-token');
+    csrfToken = data.csrfToken;
+  } catch (error) {
+    console.error('Failed to fetch CSRF token:', error);
   }
+};
 
+api.interceptors.request.use((config) => {
+  if (csrfToken && !['get', 'head', 'options'].includes(config.method?.toLowerCase())) {
+    config.headers['x-csrf-token'] = csrfToken;
+  }
   return config;
 });
 
@@ -32,7 +39,6 @@ api.interceptors.response.use(
       originalRequest?.url?.includes("/auth/reset-password");
 
     if (isRefreshRequest) {
-      Cookies.remove("accessToken");
       return Promise.reject(error);
     }
 
@@ -44,19 +50,14 @@ api.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const res = await api.post("/auth/refresh");
+        await api.post("/auth/refresh");
 
-        Cookies.set("accessToken", res.data.accessToken, { expires: 7 });
-
-        originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`;
-
+        // The HttpOnly cookie is automatically updated by the browser.
+        // We just need to retry the original request.
         return api(originalRequest);
       } catch (refreshError) {
-        Cookies.remove("accessToken");
         localStorage.removeItem("user");
-
         window.location.href = "/";
-
         return Promise.reject(refreshError);
       }
     }

@@ -26,7 +26,6 @@
     "@tailwindcss/vite": "^4.2.4",
     "axios": "^1.15.2",
     "country-state-city": "^3.2.1",
-    "js-cookie": "^3.0.5",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-icon": "^1.0.0",
