@@ -8,7 +8,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useSocket } from "../context/SocketContext";
 
 export default function Navbar({ variant = "public" }) {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
   const { theme, toggleTheme } = useTheme();
   const socket = useSocket();
   const [notifications, setNotifications] = useState([]);
@@ -57,6 +57,12 @@ export default function Navbar({ variant = "public" }) {
 
   useEffect(() => {
     fetchNotifications();
+
+    const handleStorage = () => {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
   useEffect(() => {
@@ -250,7 +256,7 @@ export default function Navbar({ variant = "public" }) {
               <div className="h-10 w-10 overflow-hidden rounded-full bg-slate-200 shadow-sm ring-2 ring-emerald-500/20">
                 {user.avatar ? (
                   <img
-                    src={`${baseUrl}${user.avatar}`}
+                    src={user.avatar?.startsWith("http") ? user.avatar : `${baseUrl}${user.avatar}`}
                     alt={user.name}
                     className="h-full w-full object-cover"
                   />

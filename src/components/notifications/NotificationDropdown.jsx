@@ -42,7 +42,7 @@ const NotificationDropdown = ({
             >
               <div className="h-9 w-9 flex-shrink-0 overflow-hidden rounded-full bg-slate-200 shadow-inner">
                 {n.sender?.avatar ? (
-                  <img src={`${baseUrl}${n.sender.avatar}`} className="h-full w-full object-cover" alt="" />
+                  <img src={n.sender.avatar.startsWith("http") ? n.sender.avatar : `${baseUrl}${n.sender.avatar}`} className="h-full w-full object-cover" alt="" />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-emerald-500 text-xs font-black text-white">
                     {n.sender?.name?.charAt(0).toUpperCase()}
